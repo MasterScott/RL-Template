@@ -220,7 +220,11 @@ void GUIComponent::Render()
 
 	DefaultImGuiStyle();
 
-	ImGui::GetIO().MouseDrawCursor = IsOpen;
+	ImGuiIO IO = ImGui::GetIO();
+	GUI.DisplayX = IO.DisplaySize.x;
+	GUI.DisplayY = IO.DisplaySize.y;
+
+	IO.MouseDrawCursor = IsOpen;
 	ImGui::SetNextWindowSize(ImVec2(840, 450));
 
 	if (IsOpen) {

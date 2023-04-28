@@ -6,7 +6,7 @@ obviously it's fine to ask a question or 2 but im not coding for you
 ---
 ![image](https://user-images.githubusercontent.com/72645298/234754559-16e1872c-6e7b-4c30-8e31-c2acf1dd5d4d.png)
 ---
-- This project contains code from Brank7's old CodeRedTemplate and has ImGui built in using KieroHook. 
+- This project contains code from ItsBranK's old CodeRedTemplate and has ImGui built in using KieroHook. 
 
 If you dont create your own pattern scan function you can just update the offsets to the latest offsets in the `Core.cpp` file. You can get the latest offsets from https://rl.dumps.host/offsets
 

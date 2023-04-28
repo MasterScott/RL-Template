@@ -17,6 +17,8 @@ public:
 
 public:
 	static bool IsOpen;
+	int DisplayX;
+	int DisplayY;
 
 public:
 	static void InitImGui();

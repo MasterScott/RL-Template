@@ -75,7 +75,7 @@ FVector* VectorSubtract(FVector* pOut, FVector* pV1, FVector* pV2)
 	return pOut;
 }
 
-FVector Drawing::CalculateScreenCoordinate(UCanvas* pCanvas, FVector Location)
+FVector Drawing::CalculateScreenCoordinate(FVector Location)
 {
 	APlayerController* aPC = Instances.IAPlayerController();
 	FVector Return;
@@ -96,8 +96,8 @@ FVector Drawing::CalculateScreenCoordinate(UCanvas* pCanvas, FVector Location)
 
 	float FOVAngle = aPC->PlayerCamera->GetFOVAngle();
 
-	Return.X = (pCanvas->ClipX / 2.0f) + Transformed.X * ((pCanvas->ClipX / 2.0f) / tan(FOVAngle * UCONST_Pi / 360.0f)) / Transformed.Z;
-	Return.Y = (pCanvas->ClipY / 2.0f) + -Transformed.Y * ((pCanvas->ClipX / 2.0f) / tan(FOVAngle * UCONST_Pi / 360.0f)) / Transformed.Z;
+	Return.X = (GUI.DisplayX / 2.0f) + Transformed.X * ((GUI.DisplayX / 2.0f) / tan(FOVAngle * UCONST_Pi / 360.0f)) / Transformed.Z;
+	Return.Y = (GUI.DisplayY / 2.0f) + -Transformed.Y * ((GUI.DisplayY / 2.0f) / tan(FOVAngle * UCONST_Pi / 360.0f)) / Transformed.Z;
 	Return.Z = 0;
 
 	return Return;
