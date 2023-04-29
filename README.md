@@ -20,7 +20,7 @@ I have also generously included a "World to Screen" function in the drawing modu
 
 To call in game functions you can use:
 ```cpp
-Cheats.Execute([]() {  function  });
+Main.Execute([]() {  function  });
 ```
 
 CodeRedTemplate documentation below:
