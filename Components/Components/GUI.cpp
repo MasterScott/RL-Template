@@ -228,7 +228,7 @@ void GUIComponent::Render()
 	ImGui::SetNextWindowSize(ImVec2(840, 450));
 
 	if (IsOpen) {
-		ImGui::Begin("Snayck's Template", &IsOpen, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::Begin("Snake's Template", &IsOpen, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize);
 		{
 			if (ImGui::BeginTabBar("Tab bar", ImGuiTabBarFlags_Reorderable | ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip)) {
 				if (ImGui::BeginTabItem("Main")) {
