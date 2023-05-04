@@ -24,7 +24,7 @@
     <ProjectGuid>{0e009492-5109-44b5-aaa9-0d7867e847d0}</ProjectGuid>
     <RootNamespace>CodeRedTemplate</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Snake's Template</ProjectName>
+    <ProjectName>Snayck's Template</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
