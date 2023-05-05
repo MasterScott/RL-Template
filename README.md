@@ -1,8 +1,6 @@
 # RL-Template
 ### Template for creating Rocket League mods
 `DISCLAIMER: IF YOU USE THIS PROJECT FOR MALICIOUS PURPOSES THAT IS ON YOU :P THIS PROJECT HAS BEEN CREATED FOR SOLELY MODDING THE GAME.`
-**ps.. dont be a skid and constantly ask "hOw DO i dO (blank)"** 
-obviously it's fine to ask a question or 2 but im not coding for you
 ---
 ![image](https://user-images.githubusercontent.com/72645298/234754559-16e1872c-6e7b-4c30-8e31-c2acf1dd5d4d.png)
 ---
