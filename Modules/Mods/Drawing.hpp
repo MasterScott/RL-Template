@@ -8,6 +8,6 @@ private:
 	~Drawing() override;
 
 public:
-// static FVector CalculateScreenCoordinate(FVector Location);
+	static FVector CalculateScreenCoordinate(FVector Location);
 };
 
