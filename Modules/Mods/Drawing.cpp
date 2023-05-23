@@ -70,7 +70,9 @@ FLOAT VectorDotProduct(FVector* pV1, FVector* pV2)
 }
 FVector* VectorSubtract(FVector* pOut, FVector* pV1, FVector* pV2)
 {
-	*pOut = *pV1 - *pV2;
+	pOut->X = pV1->X - pV2->X;
+	pOut->Y = pV1->Y - pV2->Y;
+	pOut->Z = pV1->Z - pV2->Z;
 
 	return pOut;
 }

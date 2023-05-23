@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.0.0) SDK
+# RocketLeague (1.0.10897.0) SDK
 # Generated with the CodeRedGenerator v1.0.2
 # ========================================================================================= #
 # File: Core_structs.hpp
@@ -12,7 +12,7 @@
 #pragma once
 
 #ifdef _MSC_VER
-	#pragma pack(push, 0x8)
+	#pragma pack(push, 0x1)
 #endif
 
 /*
@@ -37,57 +37,6 @@ struct FVector
 	float                                              X;                                             // 0x0000 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              Y;                                             // 0x0004 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              Z;                                             // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	FVector operator - () { return FVector(-X, -Y, -Z); }
-
-	FVector operator + (FVector& v) { return FVector(X + v.X, Y + v.Y, Z + v.Z); }
-	FVector operator - (FVector& v) { return FVector(X - v.X, Y - v.Y, Z - v.Z); }
-	FVector operator * (FVector& v) { return FVector(X * v.X, Y * v.Y, Z * v.Z); }
-	FVector operator / (FVector& v) { return FVector(X / v.X, Y / v.Y, Z / v.Z); }
-
-	FVector operator = (FVector v)
-	{
-		this->X = v.X;
-		this->Y = v.Y;
-		this->Z = v.Z;
-
-		return *this;
-	}
-
-	FVector operator += (FVector& v)
-	{
-		this->X += v.X;
-		this->Y += v.Y;
-		this->Z += v.Z;
-
-		return *this;
-	}
-
-	FVector operator -= (FVector& v)
-	{
-		this->X -= v.X;
-		this->Y -= v.Y;
-		this->Z -= v.Z;
-
-		return *this;
-	}
-
-	FVector operator /= (FVector& v)
-	{
-		this->X /= v.X;
-		this->Y /= v.Y;
-		this->Z /= v.Z;
-
-		return *this;
-	}
-
-	FVector operator *= (FVector& v)
-	{
-		this->X *= v.X;
-		this->Y *= v.Y;
-		this->Z *= v.Z;
-
-		return *this;
-	}
 };
 
 // ScriptStruct Core.Object.Plane
@@ -142,35 +91,6 @@ struct FColor
 	uint8_t                                            G;                                             // 0x0001 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            R;                                             // 0x0002 (0x0001) [0x0000000000000001] (CPF_Edit)    
 	uint8_t                                            A;                                             // 0x0003 (0x0001) [0x0000000000000001] (CPF_Edit)    
-
-	static FLinearColor InvertColor(FLinearColor LinearColor)
-	{
-		LinearColor.R = 1 - LinearColor.R;
-		LinearColor.G = 1 - LinearColor.G;
-		LinearColor.B = 1 - LinearColor.B;
-		LinearColor.A = LinearColor.A;
-		return LinearColor;
-	}
-
-	static FLinearColor ToLinearColor(FColor Color)
-	{
-		FLinearColor LinearColor;
-		LinearColor.R = (Color.R > 0 ? (static_cast<float>(Color.R) / 255.0f) : 0);
-		LinearColor.G = (Color.G > 0 ? (static_cast<float>(Color.G) / 255.0f) : 0);
-		LinearColor.B = (Color.B > 0 ? (static_cast<float>(Color.B) / 255.0f) : 0);
-		LinearColor.A = (Color.A > 0 ? (static_cast<float>(Color.A) / 255.0f) : 0);
-		return LinearColor;
-	}
-
-	FLinearColor ToLinearColor()
-	{
-		FLinearColor LinearColor;
-		LinearColor.R = (R > 0 ? (static_cast<float>(R) / 255.0f) : 0);
-		LinearColor.G = (G > 0 ? (static_cast<float>(G) / 255.0f) : 0);
-		LinearColor.B = (B > 0 ? (static_cast<float>(B) / 255.0f) : 0);
-		LinearColor.A = (A > 0 ? (static_cast<float>(A) / 255.0f) : 0);
-		return LinearColor;
-	}
 };
 
 // ScriptStruct Core.Object.Vector2D
@@ -343,6 +263,7 @@ struct FRawDistribution
 	uint8_t                                            Op;                                            // 0x0001 (0x0001) [0x0000000000000000]               
 	uint8_t                                            LookupTableNumElements;                        // 0x0002 (0x0001) [0x0000000000000000]               
 	uint8_t                                            LookupTableChunkSize;                          // 0x0003 (0x0001) [0x0000000000000000]               
+	uint8_t                                           UnknownData00[0x4];                               		// 0x0004 (0x0004) MISSED OFFSET
 	TArray<float>                                      LookupTable;                                   // 0x0008 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 	float                                              LookupTableTimeScale;                          // 0x0018 (0x0004) [0x0000000000000000]               
 	float                                              LookupTableStartTime;                          // 0x001C (0x0004) [0x0000000000000000]               
@@ -503,10 +424,13 @@ struct FUntypedBulkData_Mirror
 	int32_t                                            BulkDataSizeOnDisk;                            // 0x0018 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            SavedBulkDataFlags;                            // 0x001C (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            SavedElementCount;                             // 0x0020 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
+	uint8_t                                           UnknownData00[0x4];                               		// 0x0024 (0x0004) MISSED OFFSET
 	uint64_t                                           SavedBulkDataOffsetInFile;                     // 0x0028 (0x0008) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            SavedBulkDataSizeOnDisk;                       // 0x0030 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
+	uint8_t                                           UnknownData01[0x4];                               		// 0x0034 (0x0004) MISSED OFFSET
 	struct FPointer                                    BulkData;                                      // 0x0038 (0x0008) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            LockStatus;                                    // 0x0040 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
+	uint8_t                                           UnknownData02[0x4];                               		// 0x0044 (0x0004) MISSED OFFSET
 	struct FPointer                                    AttachedAr;                                    // 0x0048 (0x0008) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            bShouldFreeOnEmpty;                            // 0x0050 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 };
@@ -537,6 +461,7 @@ struct FSet_Mirror
 {
 	struct FSparseArray_Mirror                         Elements;                                      // 0x0000 (0x0038) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            InlineHash;                                    // 0x0038 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
+	uint8_t                                           UnknownData00[0x4];                               		// 0x003C (0x0004) MISSED OFFSET
 	struct FPointer                                    Hash;                                          // 0x0040 (0x0008) [0x0000000000001002] (CPF_Const | CPF_Native)
 	int32_t                                            HashSize;                                      // 0x0048 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
 };
@@ -615,21 +540,6 @@ struct FUniqueNetId
 	class FString                                      EpicAccountId;                                 // 0x0030 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 	uint8_t                                            Platform;                                      // 0x0040 (0x0001) [0x0000000000000000]               
 	uint8_t                                            SplitscreenID;                                 // 0x0041 (0x0001) [0x0000000000000000]               
-
-	bool operator==(const FUniqueNetId& Other) const
-	{
-		if (Uid == Other.Uid && EpicAccountId.ToString() == Other.EpicAccountId.ToString() && Platform == Other.Platform && SplitscreenID == Other.SplitscreenID)
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-	bool operator!=(const FUniqueNetId& Other) const
-	{
-		return !(*this == Other);
-	}
 };
 
 // ScriptStruct Core._Types_Core.ProductHashID
@@ -698,6 +608,7 @@ struct FBreadcrumbEntry
 struct FAsyncDelegateInfo
 {
 	int32_t                                            CallbackId;                                    // 0x0000 (0x0004) [0x0000000000000000]               
+	uint8_t                                           UnknownData00[0x4];                               		// 0x0004 (0x0004) MISSED OFFSET
 	struct FScriptDelegate                             AsyncDelegate;                                 // 0x0008 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 };
 
